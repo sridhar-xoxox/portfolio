@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Sridhar Portfolio</title>
+    <link rel="shortcut icon" href="./assets/images/my-avatar" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <style>
+        /* Filter Styles */
+        .filter-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            color: var(--light-gray);
+            font-size: var(--fs-6);
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: var(--transition-1);
+            cursor: pointer;
+            background: var(--eerie-black-2);
+            border: 1px solid var(--jet);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            color: var(--orange-yellow-crayola);
+            border-color: var(--orange-yellow-crayola);
+        }
+
+        /* Custom adjustments for media in project cards */
+        .project-image video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .file-download-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            height: 100%;
+            color: var(--light-gray);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .project-card {
+            background: var(--eerie-black-1);
+            /* Fallback or variable */
+            border: 1px solid var(--jet);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            /* Force equal height in grid row */
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            border-color: var(--orange-yellow-crayola);
+        }
+
+        /* Fixed Height Image Container */
+        .project-image {
+            width: 100%;
+            height: 220px;
+            /* Fixed height for all cards */
+            overflow: hidden;
+            background: hsl(0, 0%, 10%);
+            position: relative;
+            flex-shrink: 0;
+            /* Prevent shrinking */
+        }
+
+        .project-image img,
+        .project-image video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Crop to fill */
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        /* Content Area fills remaining space */
+        .project-content {
+            padding: 24px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            margin-bottom: 10px;
+            font-size: var(--fs-5);
+            font-weight: var(--fw-600);
+            color: var(--white-1);
+        }
+
+        .project-description {
+            color: var(--light-gray);
+            font-size: var(--fs-6);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            /* Limit text to 3 lines */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .project-tags {
+            margin-top: auto;
+            /* Push tags to bottom */
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .project-tag {
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            background: var(--jet);
+            color: var(--orange-yellow-crayola);
+        }
+
+        .file-download-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            height: 100%;
+            color: var(--light-gray);
+        }
+
+        .file-icon {
+            font-size: 48px;
+            color: var(--orange-yellow-crayola);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- #BACKGROUND -->
+    <div class="background-overlay">
+        <div class="background-grid"></div>
+        <div class="background-gradient"></div>
+    </div>
+
+    <!-- #TIME DISPLAY -->
+    <div class="time-display" id="time-display">
+        <span class="time-location" data-text="INDIA">INDIA</span>
+        <span class="time-separator" data-text="/">/</span>
+        <span class="time-value" id="time-value" data-text="--:-- --">--:-- --</span>
+    </div>
+
+    <main>
+        <div class="main-content">
+
+            <!-- Navbar (Simplified for Works Page) -->
+            <nav class="navbar" style="bottom: auto; top: 0; width: 100%; position: sticky;">
+                <ul class="navbar-list" style="justify-content: center;">
+                    <li class="navbar-item">
+                        <a href="index.html" class="navbar-link" aria-label="Home" title="Home">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </a>
+                    </li>
+                    <li class="navbar-separator"></li>
+                    <li class="navbar-item">
+                        <a href="projects.html" class="navbar-link active" aria-label="Projects" title="Projects">
+                            <ion-icon name="laptop-outline"></ion-icon>
+                        </a>
+                    </li>
+                    <li class="navbar-separator"></li>
+                    <li class="navbar-item">
+                        <a href="gallery.html" class="navbar-link " aria-label="Gallery" title="Photo Gallery">
+                            <ion-icon name="camera-outline"></ion-icon>
+                        </a>
+                    </li>
+                    <li class="navbar-separator"></li>
+                    <li class="navbar-item">
+                        <a href="media.html" class="navbar-link " aria-label="Media Output" title="Media">
+                            <ion-icon name="videocam-outline"></ion-icon>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <article class="active">
+                <header class="header-section">
+                    <h2 class="h2 article-title">Projects</h2>
+                </header>
+
+                
+
+                <div class="projects-grid" id="worksGrid">
+                    <!-- Works will be loaded here -->
+                </div>
+
+            </article>
+
+        </div>
+    </main>
+
+    <script src="./assets/js/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        const worksGrid = document.getElementById('worksGrid');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        let allWorks = [];
+
+        // Category Label Mapper
+        const categoryLabels = {
+            'project-client': 'Client Work',
+            'project-web': 'Website',
+            'project-media': 'Media Brand',
+            'project-code': 'Coding',
+            'output': 'Final Export',
+            'gallery': 'Pic Snap'
+        };
+
+        // Helper to get works from localStorage
+        function getWorks() {
+            const works = localStorage.getItem('portfolio_works');
+            return works ? JSON.parse(works) : [];
+        }
+
+        // Auto Filtering for Projects
+        function loadWorks() {
+            try {
+                allWorks = getWorks();
+                renderWorks(allWorks.filter(w => w.type === 'project'));
+            } catch (err) {
+                console.error('Failed to load project', err);
+                worksGrid.innerHTML = '<p style="color:var(--white-1);">Failed to load projects.</p>';
+            }
+        }
+    
+        // Render works
+        function renderWorks(works) {
+            if (works.length === 0) {
+                worksGrid.innerHTML = '<p style="color:var(--light-gray); grid-column: 1/-1; text-align: center;">No works found.</p>';
+                return;
+            }
+
+            worksGrid.innerHTML = works.map(work => {
+                // 1️⃣ PROJECT CARD
+                if (work.type === 'project') {
+                    const techBadges = work.techStack ? work.techStack.split(',').map(t => `<span class="project-tag">${t.trim()}</span>`).join('') : '';
+                    return `
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img src="${work.filePath}" alt="${work.title}" onerror="this.src='./assets/images/project-1.png'">
+                            <div class="project-item-icon-box">
+                                <ion-icon name="eye-outline"></ion-icon>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div style="display:flex; justify-content:space-between; align-items:center;">
+                                <h3 class="project-title">${work.title}</h3>
+                                <span style="color:var(--orange-yellow-crayola); font-size:12px;">${work.category}</span>
+                            </div>
+                            
+                            <p style="color:var(--light-gray-70); font-size:13px; margin-bottom:10px;">${work.client ? 'Client: ' + work.client : 'Personal Project'}</p>
+                            
+                            <p class="project-description">${work.description || ''}</p>
+                            
+                            <div class="project-tags" style="margin-top:10px;">
+                                ${techBadges}
+                            </div>
+
+                            <div style="display:flex; gap:15px; margin-top:20px;">
+                                ${work.liveUrl ? `<a href="${work.liveUrl}" target="_blank" style="color:var(--white-1); font-size:20px;"><ion-icon name="globe-outline"></ion-icon></a>` : ''}
+                                ${work.githubUrl ? `<a href="${work.githubUrl}" target="_blank" style="color:var(--white-1); font-size:20px;"><ion-icon name="logo-github"></ion-icon></a>` : ''}
+                            </div>
+                        </div>
+                    </article>`;
+                }
+
+                // 2️⃣ MEDIA OUTPUT CARD
+                if (work.type === 'output') {
+                    let mediaDisplay = '';
+                    if (work.fileType && work.fileType.startsWith('video/')) {
+                        mediaDisplay = `<video controls style="width:100%; height:100%; object-fit:cover;"><source src="${work.filePath}" type="${work.fileType}"></video>`;
+                    } else {
+                        mediaDisplay = `<img src="${work.filePath}" style="width:100%; height:100%; object-fit:cover;">`;
+                    }
+
+                    return `
+                    <article class="project-card">
+                        <div class="project-image">
+                            ${mediaDisplay}
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">${work.title}</h3>
+                            <div class="project-tags">
+                                <span class="project-tag" style="background:var(--jet);">${work.mediaType}</span>
+                                ${work.relatedProject ? `<span class="project-tag">🔗 ${work.relatedProject}</span>` : ''}
+                            </div>
+                            <p class="project-description">${work.description || ''}</p>
+                        </div>
+                    </article>`;
+                }
+
+                // 3️⃣ PHOTOGRAPHY CARD
+                if (work.type === 'gallery') {
+                    return `
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img src="${work.filePath}" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">${work.title}</h3>
+                            <p style="color:var(--light-gray); font-size:13px;">📍 ${work.location || 'Unknown'}</p>
+                            <div class="project-tags" style="margin-top:10px;">
+                                <span class="project-tag">${work.category}</span>
+                                ${work.camera ? `<span class="project-tag">📷 ${work.camera}</span>` : ''}
+                            </div>
+                            <p class="project-description" style="margin-top:10px;">${work.description || ''}</p>
+                        </div>
+                    </article>`;
+                }
+
+                // Fallback / Generic
+                let mediaHtml = '';
+                if (work.fileType && work.fileType.startsWith('image/')) {
+                    mediaHtml = `<img src="${work.filePath}" alt="${work.title}" onerror="this.src='./assets/images/my-avatar.png'">`;
+                } else {
+                    mediaHtml = `<div class="file-download-container"><ion-icon name="document-text-outline" class="file-icon"></ion-icon></div>`;
+                }
+
+                return `
+                <article class="project-card">
+                    <div class="project-image">${mediaHtml}</div>
+                    <div class="project-content">
+                        <h3 class="project-title">${work.title}</h3>
+                        <p class="project-description">${work.description || ''}</p>
+                    </div>
+                </article>`;
+            }).join('');
+        }
+
+        // Initial Load
+        loadWorks();
+
+        
+    </script>
+
+</body>
+
+</html>

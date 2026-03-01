@@ -1,0 +1,24 @@
+{
+  "name": "portfolio-spotify-integration",
+  "version": "1.0.0",
+  "description": "Spotify Now Playing integration for portfolio website",
+  "main": "spotify-api.js",
+  "scripts": {
+    "start": "node server.js",
+    "spotify": "node spotify-api.js",
+    "dev": "node server.js & node spotify-api.js"
+  },
+  "keywords": [
+    "spotify",
+    "portfolio",
+    "now-playing"
+  ],
+  "author": "Sridhar G",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1",
+    "querystring": "^0.2.1"
+  }
+}

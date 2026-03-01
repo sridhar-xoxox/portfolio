@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sridhar - Personal Portfolio</title>
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="./assets/images/my-avatar" type="image/x-icon">
+
+  <!-- custom css link -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <style>
+    /* Enhanced UI Styling for Better User Experience */
+
+    .profile-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Header Section - Hero */
+    .header-section {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(255, 183, 77, 0.05) 0%, rgba(255, 183, 77, 0) 100%),
+        var(--bg-gradient-onyx);
+      padding: 40px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 183, 77, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .header-section:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .name-title {
+      font-size: 48px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--orange-yellow-crayola), var(--vegas-gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 15px;
+      letter-spacing: -1px;
+    }
+
+    .tagline {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--light-gray-70);
+      margin-bottom: 10px;
+    }
+
+    .tagline:first-of-type {
+      font-size: 18px;
+      color: var(--light-gray);
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+
+    .profile-picture {
+      width: 180px;
+      height: 180px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 3px solid var(--orange-yellow-crayola);
+      box-shadow: 0 8px 24px rgba(255, 183, 77, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-picture:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+
+    .profile-picture img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Section Cards */
+    .about-section,
+    .portfolio-education,
+    .skills-section,
+    .portfolio-experience {
+      background: var(--bg-gradient-jet);
+      padding: 35px;
+      border-radius: 20px;
+      border: 1px solid var(--jet);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .about-section:hover,
+    .portfolio-education:hover,
+    .skills-section:hover,
+    .portfolio-experience:hover {
+      border-color: rgba(255, 183, 77, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .section-title {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--white-1);
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid rgba(255, 183, 77, 0.2);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--orange-yellow-crayola), transparent);
+    }
+
+    .about-text {
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--light-gray-70);
+      margin-bottom: 0;
+    }
+
+    .about-text strong {
+      color: var(--orange-yellow-crayola);
+      font-weight: 600;
+    }
+
+    /* Education Items */
+    .education-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .education-item {
+      background: rgba(255, 255, 255, 0.02);
+      padding: 25px;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .education-item:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 183, 77, 0.2);
+      transform: translateX(5px);
+    }
+
+    .education-institution {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--white-1);
+      margin-bottom: 8px;
+    }
+
+    .education-degree {
+      font-size: 14px;
+      color: var(--light-gray-70);
+      line-height: 1.6;
+    }
+
+    /* Skills Section */
+    .skills-section h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--orange-yellow-crayola);
+      margin-top: 25px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 13px;
+    }
+
+    .skills-section h3:first-of-type {
+      margin-top: 0;
+    }
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-tag {
+      background: linear-gradient(135deg, rgba(255, 183, 77, 0.1), rgba(255, 183, 77, 0.05));
+      color: var(--light-gray);
+      padding: 10px 18px;
+      border-radius: 25px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid rgba(255, 183, 77, 0.2);
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    .skill-tag:hover {
+      background: linear-gradient(135deg, rgba(255, 183, 77, 0.2), rgba(255, 183, 77, 0.1));
+      border-color: var(--orange-yellow-crayola);
+      color: var(--white-1);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 183, 77, 0.2);
+    }
+
+    /* Experience Items */
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .experience-item {
+      background: rgba(255, 255, 255, 0.02);
+      padding: 30px;
+      border-radius: 15px;
+      border-left: 3px solid var(--orange-yellow-crayola);
+      border-right: 1px solid rgba(255, 255, 255, 0.05);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .experience-item:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-left-color: var(--vegas-gold);
+      transform: translateX(5px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .experience-logo {
+      flex-shrink: 0;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 183, 77, 0.1);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 183, 77, 0.2);
+    }
+
+    .experience-content {
+      flex: 1;
+    }
+
+    .experience-company {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--white-1);
+      margin-bottom: 5px;
+    }
+
+    .experience-role {
+      font-size: 14px;
+      color: var(--orange-yellow-crayola);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .experience-desc {
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--light-gray-70);
+    }
+
+    /* Contact Icons */
+    .contact-icons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 25px;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(255, 183, 77, 0.1), rgba(255, 183, 77, 0.05));
+      border-radius: 12px;
+      border: 1px solid rgba(255, 183, 77, 0.2);
+      color: var(--light-gray);
+      font-size: 22px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-icon:hover {
+      background: linear-gradient(135deg, var(--orange-yellow-crayola), var(--vegas-gold));
+      border-color: var(--orange-yellow-crayola);
+      color: var(--smoky-black);
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: 0 8px 20px rgba(255, 183, 77, 0.4);
+    }
+
+    /* Enhanced Responsive Design with Auto-Scaling */
+
+    /* Fluid Typography Base */
+    html {
+      font-size: 16px;
+    }
+
+    @media (min-width: 1400px) {
+      html {
+        font-size: 18px;
+      }
+
+      .profile-grid {
+        max-width: 1400px;
+      }
+    }
+
+    @media (min-width: 1920px) {
+      html {
+        font-size: 20px;
+      }
+
+      .profile-grid {
+        max-width: 1600px;
+      }
+    }
+
+    /* Tablet Landscape */
+    @media (max-width: 1024px) {
+      .profile-grid {
+        gap: 25px;
+        padding: 20px;
+      }
+
+      .header-section {
+        gap: 30px;
+        padding: 35px;
+      }
+
+      .name-title {
+        font-size: 42px;
+      }
+
+      .about-section,
+      .portfolio-education,
+      .skills-section,
+      .portfolio-experience {
+        padding: 30px;
+      }
+    }
+
+    /* Tablet Portrait */
+    @media (max-width: 768px) {
+      .header-section {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 30px 25px;
+        gap: 25px;
+      }
+
+      .profile-picture {
+        margin: 0 auto;
+        width: 150px;
+        height: 150px;
+      }
+
+      .name-title {
+        font-size: 36px;
+      }
+
+      .tagline {
+        font-size: 15px;
+      }
+
+      .tagline:first-of-type {
+        font-size: 16px;
+      }
+
+      .about-section,
+      .portfolio-education,
+      .skills-section,
+      .portfolio-experience {
+        padding: 25px 20px;
+      }
+
+      .section-title {
+        font-size: 24px;
+      }
+
+      .experience-item {
+        flex-direction: column;
+        padding: 25px;
+      }
+
+      .experience-logo {
+        margin: 0 auto;
+      }
+
+      .experience-content {
+        text-align: center;
+      }
+
+      .contact-icons {
+        padding: 20px;
+      }
+
+      .contact-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+      }
+    }
+
+    /* Mobile Large */
+    @media (max-width: 480px) {
+      .profile-grid {
+        gap: 20px;
+        padding: 12px;
+      }
+
+      .header-section {
+        padding: 25px 20px;
+      }
+
+      .name-title {
+        font-size: 28px;
+        letter-spacing: -0.5px;
+      }
+
+      .tagline {
+        font-size: 14px;
+      }
+
+      .tagline:first-of-type {
+        font-size: 15px;
+      }
+
+      .profile-picture {
+        width: 120px;
+        height: 120px;
+      }
+
+      .about-section,
+      .portfolio-education,
+      .skills-section,
+      .portfolio-experience {
+        padding: 20px 15px;
+      }
+
+      .section-title {
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+
+      .education-item,
+      .experience-item {
+        padding: 20px;
+      }
+
+      .skill-tag {
+        padding: 8px 14px;
+        font-size: 12px;
+      }
+
+      .contact-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+      }
+
+      .experience-company {
+        font-size: 16px;
+      }
+
+      .experience-role {
+        font-size: 13px;
+      }
+
+      .experience-desc {
+        font-size: 12px;
+      }
+    }
+
+    /* Mobile Small - Enhanced Alignment */
+    @media (max-width: 360px) {
+      .profile-grid {
+        padding: 8px;
+        gap: 18px;
+      }
+
+      .header-section {
+        padding: 20px 15px;
+        gap: 20px;
+      }
+
+      .name-title {
+        font-size: 24px;
+        line-height: 1.2;
+        margin-bottom: 12px;
+      }
+
+      .tagline {
+        font-size: 13px;
+        line-height: 1.6;
+        text-align: center;
+      }
+
+      .tagline:first-of-type {
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+
+      .profile-picture {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 15px;
+      }
+
+      .about-section,
+      .portfolio-education,
+      .skills-section,
+      .portfolio-experience {
+        padding: 18px 12px;
+        border-radius: 15px;
+      }
+
+      .section-title {
+        font-size: 18px;
+        margin-bottom: 18px;
+        text-align: center;
+      }
+
+      .about-text {
+        font-size: 13px;
+        line-height: 1.7;
+        text-align: left;
+      }
+
+      .about-text strong {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      /* Education Items */
+      .education-item {
+        padding: 15px;
+        text-align: center;
+      }
+
+      .education-institution {
+        font-size: 15px;
+        line-height: 1.4;
+        margin-bottom: 8px;
+      }
+
+      .education-degree {
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      /* Skills */
+      .skills-section h3 {
+        font-size: 12px;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 12px;
+      }
+
+      .skills-container {
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .skill-tag {
+        padding: 6px 12px;
+        font-size: 11px;
+        border-radius: 20px;
+      }
+
+      /* Experience Items */
+      .experience-item {
+        padding: 18px;
+        gap: 15px;
+      }
+
+      .experience-logo {
+        width: 45px;
+        height: 45px;
+      }
+
+      .experience-company {
+        font-size: 15px;
+        line-height: 1.3;
+        margin-bottom: 6px;
+      }
+
+      .experience-role {
+        font-size: 12px;
+        margin-bottom: 10px;
+      }
+
+      .experience-desc {
+        font-size: 11px;
+        line-height: 1.6;
+      }
+
+      /* Contact Icons */
+      .contact-icons {
+        padding: 15px 10px;
+        gap: 12px;
+      }
+
+      .contact-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+      }
+    }
+
+    /* Extra Small Mobile - Ultra Compact */
+    @media (max-width: 320px) {
+      .profile-grid {
+        padding: 6px;
+        gap: 15px;
+      }
+
+      .header-section {
+        padding: 18px 12px;
+      }
+
+      .name-title {
+        font-size: 22px;
+      }
+
+      .tagline {
+        font-size: 12px;
+      }
+
+      .tagline:first-of-type {
+        font-size: 13px;
+      }
+
+      .profile-picture {
+        width: 90px;
+        height: 90px;
+      }
+
+      .about-section,
+      .portfolio-education,
+      .skills-section,
+      .portfolio-experience {
+        padding: 15px 10px;
+      }
+
+      .section-title {
+        font-size: 16px;
+        margin-bottom: 15px;
+      }
+
+      .about-text {
+        font-size: 12px;
+      }
+
+      .education-item,
+      .experience-item {
+        padding: 12px;
+      }
+
+      .skill-tag {
+        padding: 5px 10px;
+        font-size: 10px;
+      }
+
+      .contact-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 15px;
+      }
+    }
+
+    /* Touch Device Optimizations */
+    @media (hover: none) and (pointer: coarse) {
+
+      .contact-icon,
+      .skill-tag,
+      .education-item,
+      .experience-item {
+        cursor: pointer;
+      }
+
+      /* Larger touch targets */
+      .contact-icon {
+        min-width: 48px;
+        min-height: 48px;
+      }
+
+      /* Remove hover effects on touch devices */
+      .header-section:hover,
+      .about-section:hover,
+      .portfolio-education:hover,
+      .skills-section:hover,
+      .portfolio-experience:hover {
+        transform: none;
+      }
+
+      /* Tap highlight */
+      .contact-icon:active,
+      .skill-tag:active {
+        opacity: 0.7;
+      }
+    }
+
+    /* High DPI Displays */
+    @media (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi) {
+      .profile-picture img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+      }
+    }
+
+    /* Landscape Mobile */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .header-section {
+        padding: 20px;
+      }
+
+      .profile-picture {
+        width: 100px;
+        height: 100px;
+      }
+
+      .name-title {
+        font-size: 24px;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+
+      .contact-icons,
+      .navbar {
+        display: none;
+      }
+
+      .header-section,
+      .about-section,
+      .portfolio-education,
+      .skills-section,
+      .portfolio-experience {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- #BACKGROUND -->
+  <div class="background-overlay">
+    <div class="background-grid"></div>
+    <div class="background-gradient"></div>
+  </div>
+
+  <!-- #TIME DISPLAY -->
+  <div class="time-display" id="time-display">
+    <span class="time-location" data-text="INDIA">INDIA</span>
+    <span class="time-separator" data-text="/">/</span>
+    <span class="time-value" id="time-value" data-text="--:-- --">--:-- --</span>
+  </div>
+
+  <!-- #MAIN -->
+  <main>
+
+    <!-- #main-content -->
+    <div class="main-content">
+
+      <!-- #NAVBAR -->
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <button class="navbar-link active" data-nav-link aria-label="About">
+              <ion-icon name="home-outline"></ion-icon>
+            </button>
+          </li>
+
+          <li class="navbar-separator"></li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link aria-label="Website">
+              <ion-icon name="globe-outline"></ion-icon>
+            </button>
+          </li>
+
+          <li class="navbar-separator"></li>
+
+          <li class="navbar-item">
+            <a href="works.html" class="navbar-link" aria-label="Works">
+              <ion-icon name="briefcase-outline"></ion-icon>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- #ABOUT -->
+      <article class="about active" data-page="about">
+        <section class="profile-grid">
+
+          <!-- Header Section -->
+          <div class="header-section">
+            <div class="header-content">
+              <h1 class="name-title">Sridhar G</h1>
+              <p class="tagline">Cybersecurity Engineer | Secure Web Developer | Media-Tech Hybrid</p>
+              <p class="tagline">I build secure, scalable digital systems and turn ideas into production-ready solutions
+                — combining cybersecurity, full-stack development, and digital media execution.</p>
+            </div>
+            <div class="profile-picture">
+              <img src="./assets/images/my-avatar.png" alt="Sridhar portrait">
+            </div>
+          </div>
+
+          <!-- About Section -->
+          <div class="about-section">
+            <h2 class="section-title">About</h2>
+            <p class="about-text">
+              I’m a Cybersecurity-focused Computer Science student who works at the intersection of security and
+              development.
+              Unlike typical students who only study theory, I've handled real-world projects — vulnerability
+              assessments, web deployments, and media-driven digital campaigns.
+            </p>
+            <p class="about-text" style="margin-top: 15px;">
+              <strong>My Edge:</strong> I don’t just build websites. I build systems with security in mind.
+              From network traffic analysis using Wireshark to deploying live business websites, I understand both how
+              systems are built and how they break.
+            </p>
+            <p class="about-text" style="margin-top: 15px;">
+              <strong>Currently focused on:</strong><br>
+              • Web application security<br>
+              • Secure full-stack development<br>
+              • Network monitoring & vulnerability assessment<br>
+              • Building security-first digital products
+            </p>
+          </div>
+
+          <!-- Education Section -->
+          <div class="portfolio-education">
+            <h2 class="section-title">Education</h2>
+            <div class="education-list">
+              <div class="education-item">
+                <div class="education-content">
+                  <p class="education-institution">Hindustan Institute of Technology and Science (HITS), Chennai</p>
+                  <p class="education-degree">B.Tech in Computer Science (Cybersecurity) | Nov 2022 – May 2026</p>
+                </div>
+              </div>
+
+              <div class="education-item">
+                <div class="education-content">
+                  <p class="education-institution">John Dewey Matriculation Higher Secondary School, Cuddalore</p>
+                  <p class="education-degree">Higher Secondary Certificate | 2021 – 2022</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Contact Icons -->
+          <div class="contact-icons">
+            <a href="tel:" class="contact-icon" aria-label="Phone">
+              <ion-icon name="call-outline"></ion-icon>
+            </a>
+            <a href="mailto:sridhar20051234@gmail.com" class="contact-icon" aria-label="Email">
+              <ion-icon name="mail-outline"></ion-icon>
+            </a>
+            <a href="https://www.linkedin.com/in/sridhar-g-452384255/" class="contact-icon" aria-label="LinkedIn"
+              target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+
+            <a href="https://www.instagram.com/_sridhar_gs/" class="contact-icon" aria-label="Instagram" target="_blank"
+              rel="noopener noreferrer">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </div>
+
+          <!-- Skills Section -->
+          <div class="skills-section">
+            <h2 class="section-title">Skills</h2>
+
+            <h3 class="h4" style="color:var(--white-1); margin-bottom:10px;">Programming & Development</h3>
+            <div class="skills-container" style="margin-bottom:20px;">
+              <span class="skill-tag">C</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">HTML</span>
+              <span class="skill-tag">CSS</span>
+              <span class="skill-tag">React</span>
+            </div>
+
+            <h3 class="h4" style="color:var(--white-1); margin-bottom:10px;">Cybersecurity & Networking</h3>
+            <div class="skills-container" style="margin-bottom:20px;">
+              <span class="skill-tag">Wireshark</span>
+              <span class="skill-tag">Vulnerability Assessment</span>
+
+              <span class="skill-tag">Network Monitoring</span>
+            </div>
+
+            <h3 class="h4" style="color:var(--white-1); margin-bottom:10px;">Systems</h3>
+            <div class="skills-container" style="margin-bottom:20px;">
+              <span class="skill-tag">Windows</span>
+              <span class="skill-tag">Linux</span>
+            </div>
+
+            <h3 class="h4" style="color:var(--white-1); margin-bottom:10px;">Media & Digital Execution</h3>
+            <div class="skills-container">
+              <span class="skill-tag">Content Strategy</span>
+              <span class="skill-tag">Event Media Management</span>
+              <span class="skill-tag">Digital Promotions</span>
+              <span class="skill-tag">Creative Campaign Execution</span>
+            </div>
+          </div>
+
+          <!-- Work Experience Section -->
+          <div class="portfolio-experience">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-list">
+
+              <div class="experience-item">
+                <div class="experience-logo" aria-hidden="true">
+                  <ion-icon name="briefcase-outline"
+                    style="font-size: 24px; color: var(--orange-yellow-crayola);"></ion-icon>
+                </div>
+                <div class="experience-content">
+                  <p class="experience-company">Freelance Web Developer & Digital Media Specialist</p>
+                  <p class="experience-role">Freelance | 2020 – Present</p>
+                  <p class="experience-desc" style="color:var(--light-gray); font-size:13px; margin-top:5px;">
+                    • Delivered live production websites for business clients<br>
+                    • Built responsive front-end systems using HTML, CSS, React<br>
+                    • Integrated performance and security best practices<br>
+                    • Managed end-to-end project lifecycle independently<br>
+                    • Executed digital promotions for brands and student communities
+                  </p>
+                </div>
+              </div>
+
+
+
+              <div class="experience-item">
+                <div class="experience-logo" aria-hidden="true">
+                  <ion-icon name="people-outline"
+                    style="font-size: 24px; color: var(--orange-yellow-crayola);"></ion-icon>
+                </div>
+                <div class="experience-content">
+                  <p class="experience-company">Hindustan University</p>
+                  <p class="experience-role">Media Secretary | 2024 – 2025</p>
+                  <p class="experience-desc" style="color:var(--light-gray); font-size:13px; margin-top:5px;">
+                    • Directed council media strategy, overseeing social platforms and website management.<br>
+                    • Led end-to-end event media production, driving visual branding and promotional campaigns.<br>
+                    • Orchestrated media coordination and content distribution to maximize event visibility and
+                    engagements.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- See My Works Button -->
+            <div style="display: flex; justify-content: center; margin-top: 30px;">
+              <a href="works.html" class="form-btn"
+                style="text-decoration: none; width: auto; padding: 12px 25px; display: inline-flex; align-items: center; gap: 10px;">
+                <ion-icon name="briefcase-outline"></ion-icon>
+                <span>See My Works</span>
+              </a>
+            </div>
+          </div>
+
+
+
+
+
+        </section>
+      </article>
+
+      <!-- #WEBSITE -->
+      <article class="website" data-page="website">
+        <section class="profile-grid">
+          <!-- Header Card -->
+          <div class="grid-card card-header">
+            <div>
+              <p class="card-overline">Sridhar</p>
+              <h2 class="card-title">Cybersecurity & creative technologist</h2>
+            </div>
+            <div>
+              <p class="card-phonetic">/sriː-dʰar/</p>
+              <p class="card-description">
+                Building secure digital experiences with a bold, creative edge.
+              </p>
+            </div>
+          </div>
+
+          <!-- Social Links -->
+          <a href="#" class="grid-card card-link card-snapchat" aria-label="Snapchat" target="_blank"
+            rel="noopener noreferrer">
+            <ion-icon name="logo-snapchat"></ion-icon>
+            <span>Snapchat</span>
+          </a>
+
+          <a href="https://github.com/sridhar-xoxox" class="grid-card card-link card-github" aria-label="GitHub"
+            target="_blank" rel="noopener noreferrer">
+            <ion-icon name="logo-github"></ion-icon>
+            <span>GitHub</span>
+          </a>
+
+          <a href="https://www.instagram.com/_sridhar_gs/" class="grid-card card-link card-instagram"
+            aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <ion-icon name="logo-instagram"></ion-icon>
+            <span>Instagram</span>
+          </a>
+
+          <!-- Intro Card -->
+          <div class="grid-card card-intro">
+            <span class="chip">about</span>
+            <p class="card-intro-title">he/him, 20</p>
+            <p class="card-intro-text">
+              Cybersecurity student who loves turning ideas into digital creations. Constantly learning, building, and
+              pushing boundaries in tech and creativity.
+            </p>
+          </div>
+
+          <!-- Email Card -->
+          <a href="mailto:sridhar20051234@gmail.com" class="grid-card card-link card-email" aria-label="Email Sridhar">
+            <ion-icon name="mail-outline"></ion-icon>
+            <span>Gmail</span>
+          </a>
+
+          <!-- Avatar Card -->
+          <div class="grid-card card-avatar">
+            <img src="./assets/images/my-avatar.png" alt="Sridhar portrait">
+          </div>
+
+          <!-- Additional Links -->
+          <a href="#" class="grid-card card-link card-discord" aria-label="Discord" target="_blank"
+            rel="noopener noreferrer">
+            <ion-icon name="logo-discord"></ion-icon>
+            <span>Discord</span>
+          </a>
+
+          <a href="https://drive.google.com/file/d/168V1EnWdv8SEnc5IUZe54j_ofc-oPidg/view?usp=sharing"
+            class="grid-card card-link card-cv" aria-label="Read CV" target="_blank" rel="noopener noreferrer">
+            <ion-icon name="document-text-outline"></ion-icon>
+            <span>Read CV</span>
+          </a>
+
+          <!-- Tech Stack Card -->
+          <div class="grid-card card-tech">
+            <span class="chip">Tech Stack</span>
+            <ul class="stack-list">
+              <li>
+                <ion-icon name="shield-checkmark-outline"></ion-icon>
+                <span>Cybersecurity research</span>
+              </li>
+              <li>
+                <ion-icon name="logo-css3"></ion-icon>
+                <span>HTML &amp; CSS</span>
+              </li>
+              <li>
+                <ion-icon name="logo-javascript"></ion-icon>
+                <span>JavaScript</span>
+              </li>
+              <li>
+                <ion-icon name="color-palette-outline"></ion-icon>
+                <span>Adobe</span>
+              </li>
+              <li>
+                <ion-icon name="logo-figma"></ion-icon>
+                <span>Figma</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Additional Social Links -->
+          <a href="https://in.pinterest.com/pic_snap/" class="grid-card card-link card-pinterest" aria-label="Pinterest"
+            target="_blank" rel="noopener noreferrer">
+            <ion-icon name="logo-pinterest"></ion-icon>
+            <span>Pinterest</span>
+          </a>
+
+          <a href="https://x.com/sridhar_gs_" class="grid-card card-link card-x" aria-label="Follow on X"
+            target="_blank" rel="noopener noreferrer">
+            <ion-icon name="logo-twitter"></ion-icon>
+            <span>Follow</span>
+          </a>
+
+          <!-- Spotify Widget -->
+          <div class="grid-card card-spotify">
+            <a href="https://open.spotify.com/user/31pedugibf3ltzotmdfdy6xpnbee" target="_blank"
+              rel="noopener noreferrer" class="spotify-header">
+              <ion-icon name="musical-notes-outline"></ion-icon>
+              <span class="chip">Now Playing</span>
+            </a>
+            <div class="spotify-content" id="spotify-widget-website">
+              <div class="spotify-loading">
+                <ion-icon name="musical-notes-outline"></ion-icon>
+                <p>Loading Spotify data...</p>
+              </div>
+            </div>
+          </div>
+
+
+        </section>
+      </article>
+
+      <!-- #FOOTER -->
+      <footer class="footer">
+        <div class="footer-container">
+          <p class="footer-copyright">© 2025 sridhar. All rights reserved.</p>
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+  <!-- custom js link -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- ionicon link -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
