@@ -772,6 +772,139 @@
         border: 1px solid #ccc;
       }
     }
+
+    /* Modern Projects Timeline Styling */
+    .modern-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .mt-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mt-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .mt-company-icon {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: var(--white-1);
+    }
+
+    .mt-company-name {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--white-1);
+    }
+
+    .mt-blue-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #0088ff;
+      box-shadow: 0 0 8px rgba(0, 136, 255, 0.6);
+    }
+
+    .mt-body {
+      display: flex;
+      flex-direction: column;
+      margin-left: 14px;
+      padding-left: 20px;
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+      gap: 25px;
+    }
+
+    .mt-role {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mt-role-header {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 8px;
+      position: relative;
+    }
+
+    .mt-role-icon {
+      position: absolute;
+      left: -33px;
+      top: -2px;
+      width: 24px;
+      height: 24px;
+      background: var(--bg-gradient-jet);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: var(--light-gray);
+    }
+
+    .mt-role-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white-1);
+      margin-bottom: 4px;
+      flex-grow: 1;
+    }
+
+    .mt-role-chevron {
+      color: var(--light-gray);
+      font-size: 14px;
+      margin-left: auto;
+    }
+
+    .mt-role-meta {
+      font-size: 13px;
+      color: var(--light-gray);
+      margin-bottom: 15px;
+    }
+
+    .mt-role-desc {
+      font-family: 'SF Mono', Consolas, Menlo, Monaco, 'Courier New', monospace;
+      font-size: 13px;
+      color: var(--light-gray);
+      line-height: 1.6;
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mt-role-desc li {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+
+    .mt-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .mt-tag {
+      font-family: 'SF Mono', Consolas, Menlo, Monaco, 'Courier New', monospace;
+      font-size: 11px;
+      color: var(--light-gray);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 4px 10px;
+      border-radius: 12px;
+    }
   </style>
 
 </head>
@@ -812,14 +945,6 @@
             <button class="navbar-link" data-nav-link aria-label="Website">
               <ion-icon name="globe-outline"></ion-icon>
             </button>
-          </li>
-
-          <li class="navbar-separator"></li>
-
-          <li class="navbar-item">
-            <a href="works.html" class="navbar-link" aria-label="Works">
-              <ion-icon name="briefcase-outline"></ion-icon>
-            </a>
           </li>
         </ul>
       </nav>
@@ -885,61 +1010,6 @@
           </div>
 
 
-          <!-- Contact Icons -->
-          <div class="contact-icons">
-            <a href="tel:" class="contact-icon" aria-label="Phone">
-              <ion-icon name="call-outline"></ion-icon>
-            </a>
-            <a href="mailto:sridhar20051234@gmail.com" class="contact-icon" aria-label="Email">
-              <ion-icon name="mail-outline"></ion-icon>
-            </a>
-            <a href="https://www.linkedin.com/in/sridhar-g-452384255/" class="contact-icon" aria-label="LinkedIn"
-              target="_blank" rel="noopener noreferrer">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-
-            <a href="https://www.instagram.com/_sridhar_gs/" class="contact-icon" aria-label="Instagram" target="_blank"
-              rel="noopener noreferrer">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </div>
-
-          <!-- Skills Section -->
-          <div class="skills-section">
-            <h2 class="section-title">Skills</h2>
-
-            <h3 class="h4" style="color:var(--white-1); margin-bottom:10px;">Programming & Development</h3>
-            <div class="skills-container" style="margin-bottom:20px;">
-              <span class="skill-tag">C</span>
-              <span class="skill-tag">Java</span>
-              <span class="skill-tag">HTML</span>
-              <span class="skill-tag">CSS</span>
-              <span class="skill-tag">React</span>
-            </div>
-
-            <h3 class="h4" style="color:var(--white-1); margin-bottom:10px;">Cybersecurity & Networking</h3>
-            <div class="skills-container" style="margin-bottom:20px;">
-              <span class="skill-tag">Wireshark</span>
-              <span class="skill-tag">Vulnerability Assessment</span>
-
-              <span class="skill-tag">Network Monitoring</span>
-            </div>
-
-            <h3 class="h4" style="color:var(--white-1); margin-bottom:10px;">Systems</h3>
-            <div class="skills-container" style="margin-bottom:20px;">
-              <span class="skill-tag">Windows</span>
-              <span class="skill-tag">Linux</span>
-            </div>
-
-            <h3 class="h4" style="color:var(--white-1); margin-bottom:10px;">Media & Digital Execution</h3>
-            <div class="skills-container">
-              <span class="skill-tag">Content Strategy</span>
-              <span class="skill-tag">Event Media Management</span>
-              <span class="skill-tag">Digital Promotions</span>
-              <span class="skill-tag">Creative Campaign Execution</span>
-            </div>
-          </div>
-
           <!-- Work Experience Section -->
           <div class="portfolio-experience">
             <h2 class="section-title">Experience</h2>
@@ -983,15 +1053,184 @@
               </div>
 
             </div>
+          </div>
 
-            <!-- See My Works Button -->
-            <div style="display: flex; justify-content: center; margin-top: 30px;">
-              <a href="works.html" class="form-btn"
-                style="text-decoration: none; width: auto; padding: 12px 25px; display: inline-flex; align-items: center; gap: 10px;">
-                <ion-icon name="briefcase-outline"></ion-icon>
-                <span>See My Works</span>
-              </a>
+          <!-- Projects Section (Modern Design) -->
+          <div class="portfolio-experience">
+            <h2 class="section-title">Projects</h2>
+            <div class="modern-timeline">
+
+              <!-- Project Group 1: ELMAX Electricals -->
+              <div class="mt-group">
+                <div class="mt-header">
+                  <div class="mt-company-icon">
+                    <ion-icon name="business-outline"></ion-icon>
+                  </div>
+                  <div class="mt-company-name">ELMAX Electricals Website</div>
+                  <div class="mt-blue-dot"></div>
+                </div>
+                <div class="mt-body">
+                  <div class="mt-role">
+                    <div class="mt-role-header">
+                      <div class="mt-role-icon"><ion-icon name="link-outline"></ion-icon></div>
+                      <div class="mt-role-title">
+                        <a href="https://elmaxelectricals.in/" target="_blank" rel="noopener noreferrer"
+                          style="color: var(--white-1); transition: color 0.2s;">
+                          View Live Project <ion-icon name="open-outline"
+                            style="display:inline-block; width:16px; height:16px; margin-left:4px; vertical-align:middle; color:var(--orange-yellow-crayola);"></ion-icon>
+                        </a>
+                      </div>
+                      <div class="mt-role-chevron"><ion-icon name="chevron-down-outline"></ion-icon></div>
+                    </div>
+                    <div class="mt-role-meta">Corporate website focused on clarity, trust, and business presentation.
+                    </div>
+                    <ul class="mt-role-desc">
+                      <li>Designed structured UI in Figma aligned with industrial branding</li>
+                      <li>Developed a fully responsive layout using HTML & CSS</li>
+                      <li>Implemented on-page SEO (meta tags, semantic structure, heading hierarchy)</li>
+                    </ul>
+                    <div class="mt-tags">
+                      <span class="mt-tag">Figma</span>
+                      <span class="mt-tag">HTML</span>
+                      <span class="mt-tag">CSS</span>
+                      <span class="mt-tag">SEO</span>
+                      <span class="mt-tag">GitHub</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Project Group 2: ROCOCO Music Website -->
+              <div class="mt-group">
+                <div class="mt-header">
+                  <div class="mt-company-icon">
+                    <ion-icon name="musical-notes-outline"></ion-icon>
+                  </div>
+                  <div class="mt-company-name">ROCOCO Music Website</div>
+                  <div class="mt-blue-dot"></div>
+                </div>
+                <div class="mt-body">
+                  <div class="mt-role">
+                    <div class="mt-role-header">
+                      <div class="mt-role-icon"><ion-icon name="link-outline"></ion-icon></div>
+                      <div class="mt-role-title">
+                        <a href="https://www.therococo.com/" target="_blank" rel="noopener noreferrer"
+                          style="color: var(--white-1); transition: color 0.2s;">
+                          View Live Project <ion-icon name="open-outline"
+                            style="display:inline-block; width:16px; height:16px; margin-left:4px; vertical-align:middle; color:var(--orange-yellow-crayola);"></ion-icon>
+                        </a>
+                      </div>
+                      <div class="mt-role-chevron"><ion-icon name="chevron-down-outline"></ion-icon></div>
+                    </div>
+                    <div class="mt-role-meta">Modern landing page built for a personal music brand.</div>
+                    <ul class="mt-role-desc">
+                      <li>Designed bold, typography-driven interface</li>
+                      <li>Developed clean dark-themed UI for strong visual impact</li>
+                      <li>Structured content for better engagement and user flow</li>
+                    </ul>
+                    <div class="mt-tags" style="margin-top: 5px;">
+                      <span class="mt-tag">Figma</span>
+                      <span class="mt-tag">HTML</span>
+                      <span class="mt-tag">CSS</span>
+                      <span class="mt-tag">GitHub</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Project Group 3: Personal Portfolio -->
+              <div class="mt-group">
+                <div class="mt-header">
+                  <div class="mt-company-icon">
+                    <ion-icon name="person-circle-outline" style="color:var(--light-gray); font-size: 22px;"></ion-icon>
+                  </div>
+                  <div class="mt-company-name">Personal Portfolio</div>
+                </div>
+                <div class="mt-body">
+                  <div class="mt-role">
+                    <div class="mt-role-header">
+                      <div class="mt-role-icon"><ion-icon name="link-outline"></ion-icon></div>
+                      <div class="mt-role-title">
+                        <a href="https://sridhar.pages.dev/" target="_blank" rel="noopener noreferrer"
+                          style="color: var(--white-1); transition: color 0.2s;">
+                          View Live Project <ion-icon name="open-outline"
+                            style="display:inline-block; width:16px; height:16px; margin-left:4px; vertical-align:middle; color:var(--orange-yellow-crayola);"></ion-icon>
+                        </a>
+                      </div>
+                      <div class="mt-role-chevron"><ion-icon name="chevron-down-outline"></ion-icon></div>
+                    </div>
+                    <div class="mt-role-meta">Minimal portfolio website to showcase projects and skills.</div>
+                    <ul class="mt-role-desc">
+                      <li>Designed and developed from scratch</li>
+                      <li>Focused on clean UI and smooth navigation</li>
+                      <li>Applied SEO fundamentals for better visibility</li>
+                    </ul>
+                    <div class="mt-tags" style="margin-top: 5px;">
+                      <span class="mt-tag">Figma</span>
+                      <span class="mt-tag">HTML</span>
+                      <span class="mt-tag">CSS</span>
+                      <span class="mt-tag">GitHub</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
+          </div>
+
+          <!-- Skills Section -->
+          <div class="skills-section">
+            <h2 class="section-title">Skills</h2>
+
+            <h3 class="h4" style="color:var(--white-1); margin-bottom:10px;">Programming & Development</h3>
+            <div class="skills-container" style="margin-bottom:20px;">
+              <span class="skill-tag">C</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">HTML</span>
+              <span class="skill-tag">CSS</span>
+              <span class="skill-tag">React</span>
+            </div>
+
+            <h3 class="h4" style="color:var(--white-1); margin-bottom:10px;">Cybersecurity & Networking</h3>
+            <div class="skills-container" style="margin-bottom:20px;">
+              <span class="skill-tag">Wireshark</span>
+              <span class="skill-tag">Vulnerability Assessment</span>
+
+              <span class="skill-tag">Network Monitoring</span>
+            </div>
+
+            <h3 class="h4" style="color:var(--white-1); margin-bottom:10px;">Systems</h3>
+            <div class="skills-container" style="margin-bottom:20px;">
+              <span class="skill-tag">Windows</span>
+              <span class="skill-tag">Linux</span>
+            </div>
+
+            <h3 class="h4" style="color:var(--white-1); margin-bottom:10px;">Media & Digital Execution</h3>
+            <div class="skills-container">
+              <span class="skill-tag">Content Strategy</span>
+              <span class="skill-tag">Event Media Management</span>
+              <span class="skill-tag">Digital Promotions</span>
+              <span class="skill-tag">Creative Campaign Execution</span>
+            </div>
+          </div>
+
+          <!-- Contact Icons -->
+          <div class="contact-icons">
+            <a href="tel:" class="contact-icon" aria-label="Phone">
+              <ion-icon name="call-outline"></ion-icon>
+            </a>
+            <a href="mailto:sridhar20051234@gmail.com" class="contact-icon" aria-label="Email">
+              <ion-icon name="mail-outline"></ion-icon>
+            </a>
+            <a href="https://www.linkedin.com/in/sridhar-g-452384255/" class="contact-icon" aria-label="LinkedIn"
+              target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+
+            <a href="https://www.instagram.com/_sridhar_gs/" class="contact-icon" aria-label="Instagram" target="_blank"
+              rel="noopener noreferrer">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
           </div>
 
 

@@ -214,7 +214,5 @@ module.exports = app;
 if (require.main === module) {
   app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
-    console.log(`Admin Interface: http://localhost:${PORT}/admin.html`);
-    console.log(`Works Page: http://localhost:${PORT}/works.html`);
   });
 }
